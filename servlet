@@ -1,0 +1,15 @@
+サーブレット
+　◆動的にコンテンツを生成するプログラム
+　◆WEBコンテナ上で動作する
+　◆WEBコンテナがHTTP通信を行う
+　　HTTPリクエスト：HttpServletRequest
+　　HTTPレスポンス：HttpServletResponse
+　◆マルチユーザ対応
+ 
+WEBコンテナ（例Tomcat）
+　◆サーブレットの実行環境
+　　サーブレットを管理する(web.xml)
+  　セッションを管理する
+　
+　
+ 
