@@ -2,4 +2,12 @@ JavaServerFaces
 
 コンポーネント（画面部品）ベースの考え方です
 
+JSF特徴
+１、MVCモデル採用
+　　ControllerはFWとして実装され、開発者はModelとViewを作成する
+２、Ease　of Development（EoD）
+　　JSFの構成要素間の紐づけが容易にできる仕組みの提供
+３、Java標準の仕様であることにより
+　　再利用性、拡張の容易性が高まる
+　　開発の効率化、ツールサポート
 
