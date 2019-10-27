@@ -1,0 +1,7 @@
+１、ブラウザからリクエストを受信する
+　　リクエストURL：/applicationName/url-pattern要素の値
+　　※url-patternはweb.xmlに設定されう
+２、リクエストURLに基づき、対応するアプリケーション、対応するServletNameを特定する
+　　web.xmlの<servler-mapping>要素と突合せする
+  　※存在しない場合、「404　Not　Found」をレスポンスする
+３、ServlerNameに対応するServletClassを実行する
