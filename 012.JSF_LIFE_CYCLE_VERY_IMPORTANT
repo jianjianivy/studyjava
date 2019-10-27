@@ -1,0 +1,11 @@
+　　　　RestoreView
+　　　　　↓
+　　　　ApplyRequestValue
+　　　　　↓
+　　　　ProcessValidation
+-------  ↓
+|　　　 UpdateModelValue
+|　　　 　↓
+|　　　 InvokeApplication
+|　　　 　↓
+------> RenderRespose
