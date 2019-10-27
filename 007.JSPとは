@@ -7,3 +7,7 @@ JSP（JavaServerPages）とは
 　文法はHTMLとJavaの折衷（HTMLにJavaコードを埋め込む）
 　WEBコンテナにより自動的にコンパイルされ、Servlerとして実行される
  
+ServletClassのdoXXXメソッドに、
+getServletContext().getRequestDispatcher("xxx/xxx/xxx.jsp").forwarod(request,response)
+でJSPに表示処理を委譲する
+ 
