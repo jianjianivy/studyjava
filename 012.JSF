@@ -35,7 +35,7 @@ https://thinkit.co.jp/free/article/0607/8/3/
 
 　　 （５）◆INVOKE_APPLICATIONフェーズ
 　　　アプリケーション・ロジックの呼び出しを実施する。（開発者がメインでコーディングする部分）
-
+　　　※ボタンやリンクに関連づけられたアクションイベントが処理されます。
 　　　→内部的には、UIVewRoot#processApplication()を実行し、その後、ActionSourceを実装する全UIComponentで、UIComponent#broadcast()を実行する。
 　　　※INVOKE_APPLICATIONにおけるメソッド呼び出し順については後述。
 
