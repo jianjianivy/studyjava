@@ -10,6 +10,28 @@ WEBコンテナ（例Tomcat）
 　◆サーブレットの実行環境
 　　サーブレットを管理する(web.xml)
   　セッションを管理する
+   
+ServletAPI：
+HttpServlet
+⇒　Httpで通信するServletの基底クラス
+
+HttpServletRequestインタフェース
+⇒Httpリクエストメッセージを表す
+　Servletのメソッドに引数として渡される
+
+HttpServletResponseインタフェース
+⇒Httpレスポンスメッセージを表す
+　Servletのメソッドに引数として渡される
+ 
+HttpSession
+⇒ユーザセッションを実現するインタフェース
+　複数のHTTPセッションを跨って、データを保持する
+　※WEBコンテナによって管理される
+
+
+
+
+ 
 　
 　
  
