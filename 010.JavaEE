@@ -1,0 +1,25 @@
+JavaEEとは
+JavaEnterpriseEditionの略
+
+企業向けシステムをJavaにより構築するために必要となるプラットフォーム仕様
+
+－－－－－－－－－－－－－－－－－－－－－
+｜　JavaEE　｜Servlet　JSP　EJB　…
+－－－－－－－－－－－－－－－－－－－－－
+｜　JavaSE　｜String　Map　List　…
+－－－－－－－－－－－－－－－－－－－－－
+
+JavaEE
+　｜－－JavaSE
+　｜－－Servlet
+　｜－－JSP
+　｜－－JSF
+　｜－－EJB
+　｜－－JPA
+　｜－－JTA
+　｜－－CDI
+
+
+定型的な仕掛けの部品の仕様を定義する
+　実装（JavaEEコンテナ）は各ベンダーに任される
+　仕様を守っていればどの実施を使っても、アプリケーションは動作が保障されう（移植性）
