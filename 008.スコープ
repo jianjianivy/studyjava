@@ -1,0 +1,10 @@
+スコープとは
+　WEBアプリケーションのサーブレットやJSPにて保存・参照される各種
+　情報の利用可能な範囲のこと
+ 
+ 格納場所　　　　　　　　スコープ　　　有効範囲
+ ServletContext        application   WEBコンテナ起動中は保持し続ける。
+ HttpSession           session　　　　１ユーザの複数回のHTTPセッションで共通。
+ 　　　　　　　　　　　　　　　　　　　　HTTPセッションが無効されるか、タイムアウトするまで保持し続ける。
+ HttpServlerRequest    request　　　　１回のHTTPセッションで共通。HTTPレスポンスを返すまで保持し続ける。
+ PageContext           page          １つのJSP内のみ利用可能
