@@ -1,0 +1,9 @@
+JSP（JavaServerPages）とは
+◆Webデザイン向き動的コンテンツ作成プログラム
+　JavaServerPages
+　動的コンテンツのテンプレートのようなもの
+
+◆特徴
+　文法はHTMLとJavaの折衷（HTMLにJavaコードを埋め込む）
+　WEBコンテナにより自動的にコンパイルされ、Servlerとして実行される
+ 
