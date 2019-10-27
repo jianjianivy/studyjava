@@ -1,0 +1,18 @@
+コンテキストルート
+|
+|
+|--WEB-INF
+|   |
+|   |--web.xml
+|   |
+|   |--classes
+|   |
+|   |--lib
+|
+|--index.html
+|
+|--images
+.
+.
+.
+
