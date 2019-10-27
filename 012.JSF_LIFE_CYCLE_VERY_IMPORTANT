@@ -13,3 +13,58 @@
         Clinet
         
         
+JSFを使ってアプリケーションを作る上で、ライフサイクルをきちんと理解することが非常に重要。
+https://qiita.com/3san-yamagami3/items/1b9d7d98c6476d5b1508
+https://qiita.com/3san-yamagami3/items/1b9d7d98c6476d5b1508
+https://thinkit.co.jp/free/article/0607/8/3/
+
+　　（１）◆RESTORE_VIEWフェーズ
+　　　View のコンポーネント(UIViewRoot) ツリーを復元（存在しなければ生成）する。
+
+　　　 →開発者はあまり意識することはないが、各コンポーネントが内部的に Java のクラスに変換されツリー構造で扱われている事を理解しておく。
+
+　　（２）◆APPLY_REQUEST_VALUESフェーズ
+　　　クライアントから送信されたリクエスト値を、UI コンポーネントのツリーに含まれる全コンポーネントに対して適用する。
+
+　　　→内部的には、UIVewRoot#processDecodes()を実行し、ツリー配下に存在する全ての子コンポーネントに対して再帰的にprocessDecodes()を実行する。
+
+　　（３）◆PROCESS_VALIDATIONSフェーズ
+　　　コンポーネントに対するバリデーションが実施される。
+
+　　　→実際には、下記のような処理が行われている。
+
+　　　・ Converter#getAsObjectメソッドがコールされる。
+　　　・ Validator#validateメソッドがコールされる。
+　　　・ コンポーネントに設定された「valueChangeListener」が実行される。
+
+　　　このフェーズでチェックNGとなった場合、RENDER_RESPONSEフェーズに遷移する。
+
+　　（４）◆UPDATE_MODEL_VALUESフェーズ
+　　　コンポーネントにバインドされているBeanに値をセットする。
+
+　　　→内部的には、UIVewRoot#processUpdates() を実行し、再帰的に子のコンポーネントで同様のprocessUpdates()を実行する。
+
+　　 （５）◆INVOKE_APPLICATIONフェーズ
+　　　アプリケーション・ロジックの呼び出しを実施する。（開発者がメインでコーディングする部分）
+　　　※ボタンやリンクに関連づけられたアクションイベントが処理されます。
+　　　→内部的には、UIVewRoot#processApplication()を実行し、その後、ActionSourceを実装する全UIComponentで、UIComponent#broadcast()を実行する。
+　　　※INVOKE_APPLICATIONにおけるメソッド呼び出し順については後述。
+
+　　　（６）◆RENDER_RESPONSEフェーズ
+　　　クライアントに返却するレスポンスを生成する。
+
+　　　→Converter#getAsStringメソッドがコールされる。コンポーネントの状態を保存し、クライアントに返却するHTMLを生成する。
+   
+★★★まとめ★★★
+JSFのライフサイクルをきちんと抑えることは基本中の基本。
+
+例えば、性能テストをしていると、どうしても性能が出ないことがある。
+そういったケースでは、まず"上記のどのフェーズで時間がかかっているか計測すること"を再優先に実施することをおすすめする。
+
+コールされる順番は下記。
+1. actionListener：UI操作のハンドリング用途
+2. setPropertyActionListener：value属性の値を、target属性にセットするリスナー
+3. action：ナビゲーション（画面遷移）用途
+
+setPropertyActionListenerって何だ？
+※親タグのactionListenerが実行された後に、このリスナーが実行されることに注意する必要がある。
