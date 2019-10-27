@@ -3,7 +3,7 @@
 |
 |--WEB-INF
 |   |
-|   |--web.xml
+|   |--web.xml ※Webコンテナにサーブレット登録、URLとサーブレットとの紐付け
 |   |
 |   |--classes
 |   |
