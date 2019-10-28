@@ -1,14 +1,14 @@
-　　　　RestoreView
+　　　　RestoreView：ビューの復元
 　　　　　↓
-　　　　ApplyRequestValue
+　　　　ApplyRequestValue：入力値の適用
 　　　　　↓
-　　　　ProcessValidation
+　　　　ProcessValidation：入力値の検証
 -------  ↓
-|　　　 UpdateModelValue
+|　　　 UpdateModelValue：モデル値の更新
 |　　　 　↓
-|　　　 InvokeApplication
+|　　　 InvokeApplication：アプリケーションの起動
 |　　　 　↓
-------> RenderRespose
+------> RenderRespose：レスポンスのレンダリング
          ↓
         Clinet
         
