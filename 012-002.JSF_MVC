@@ -1,0 +1,40 @@
+＜Model＞
+BackingBean(CDI Managed Bean)
+◆CDIコンテストで管理されるオブジェクト
+◆役割
+　画面入出力情報の保持
+　画面イベントの処理
+◆画面のUI部品との関連づけが容易
+
+＜View＞
+Faceletsページ
+◆XHTMLとして記述する
+◆カスタムタグを利用して記述する
+　Faceletsタグ
+　　入出力項目、表示制御などのタグがある
+　　サーバ側でUIコンポーネントによって処理（HTMLタグに変換など）され、
+　　レスポンスとしてブラウザに返される
+◆EL式でBackingBeanの属性とメソッドと関連付ける
+
+UIコンポーネント
+◆画面の入出力項目（Faceletsタグ）に対するJavaクラス
+　⇒HTMLへの変換（BBのプロパティ値の埋め込み）
+　⇒入力文字列の保持（BBのプロパティに反映される前の値）
+◆ユーザ・画面毎にインスタンスが生成される
+　⇒Faceletsタグ階層と対応したツリー構となる（UIコンポーネントツリー）
+
+                    UIViewRoot（階層①）
+h:form          <---> |--UIForm（階層②）
+h:inputText     <--->   |--UIInput  （階層③）
+h:commandButton <--->   |--UICommand（階層③）
+
+＜Controller＞
+FacesServlet
+◆FW提供
+◆役割
+　Faces構成ファイルの読み込み
+　リクエストの処理フェーズの管理
+
+Faces構成ファイル（faces-config.xml）
+◆JFSの設定ファイルであり、Controllerを制御するための情報を開発者が記述する
+
