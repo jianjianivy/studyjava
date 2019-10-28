@@ -11,3 +11,13 @@ JSF特徴
 　　再利用性、拡張の容易性が高まる
 　　開発の効率化、ツールサポート
 
+
+JSF構成要素
+◆Model
+　BackingBean
+◆View
+　Faceletsページ（XHTML、Faceletsタグ）
+　UIコンポーネント（FW提供）
+◆Controller
+　FacesServlet（FW提供）
+　Faces構成ファイル
