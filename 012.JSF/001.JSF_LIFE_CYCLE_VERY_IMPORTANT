@@ -68,3 +68,85 @@ JSFのライフサイクルをきちんと抑えることは基本中の基本�
 
 setPropertyActionListenerって何だ？
 ※親タグのactionListenerが実行された後に、このリスナーが実行されることに注意する必要がある。
+
+-----------------------------------------
+http://muimi.com/j/jsf/lifecycle/
+-----------------------------------------
+PhaseListener
+PhaseListenerを使うと、フェイズの前後に割り込んで処理を行うことができます。
+
+MyPhaseListener.java
+package hoge;
+
+import javax.faces.event.PhaseEvent;
+import javax.faces.event.PhaseId;
+import javax.faces.event.PhaseListener;
+
+public class MyPhaseListener implements PhaseListener{
+
+    //前処理
+    public void afterPhase(PhaseEvent event) {
+        System.out.println("[AFTER]" + event.getPhaseId());
+    }
+
+    //後処理
+    public void beforePhase(PhaseEvent event) {
+        System.out.println("[BEFORE]" + event.getPhaseId());
+    }
+
+    //対象のフェイズIDを返す。ここでは全てのフェイズを指定。
+    public PhaseId getPhaseId() {
+        return PhaseId.ANY_PHASE;
+    }
+}
+
+PhaseListenerをfaces-config.xmlに登録します。
+<lifecycle>
+    <phase-listener>hoge.MyPhaseListener</phase-listener>
+</lifecycle>
+
+JSP
+<h:form>
+    <h:inputText value="#{hoge.s}"/>
+    <h:commandButton value="GOGO"/>
+</h:form>
+
+次のような出力が表示されます。ちゃんとフェイズどおりですね。
+[BEFORE]RESTORE_VIEW 1
+[AFTER]RESTORE_VIEW 1
+[BEFORE]RENDER_RESPONSE 6
+[BEFORE]RESTORE_VIEW 1
+[AFTER]RESTORE_VIEW 1
+[BEFORE]RENDER_RESPONSE 6
+[AFTER]RENDER_RESPONSE 6
+[BEFORE]RESTORE_VIEW 1
+[AFTER]RESTORE_VIEW 1
+[BEFORE]APPLY_REQUEST_VALUES 2
+[AFTER]APPLY_REQUEST_VALUES 2
+[BEFORE]PROCESS_VALIDATIONS 3
+[AFTER]PROCESS_VALIDATIONS 3
+[BEFORE]UPDATE_MODEL_VALUES 4
+[AFTER]UPDATE_MODEL_VALUES 4
+[BEFORE]INVOKE_APPLICATION 5
+[AFTER]INVOKE_APPLICATION 5
+[BEFORE]RENDER_RESPONSE 6
+[AFTER]RENDER_RESPONSE 6
+
+最初にJSPを読んだときは以下のようになります。
+[BEFORE]RESTORE_VIEW 1
+[AFTER]RESTORE_VIEW 1
+[BEFORE]RENDER_RESPONSE 6
+[AFTER]RENDER_RESPONSE 6
+
+またバリデーションでエラーになると、こんな感じになります(上のJSPコードではバリデーションをセットしてませんが)。
+[BEFORE]RESTORE_VIEW 1
+[AFTER]RESTORE_VIEW 1
+[BEFORE]APPLY_REQUEST_VALUES 2
+[AFTER]APPLY_REQUEST_VALUES 2
+[BEFORE]PROCESS_VALIDATIONS 3
+[AFTER]PROCESS_VALIDATIONS 3
+[BEFORE]RENDER_RESPONSE 6
+[AFTER]RENDER_RESPONSE 6
+
+
+
