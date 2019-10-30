@@ -12,7 +12,7 @@ getServletContext().getRequestDispatcher("xxx/xxx/xxx.jsp").forwarod(request,res
 でJSPに表示処理を委譲する
 
 ◆構成
-　ディレクティブ部
+　ディレクティブ部（Directive：指令）
 　コンテンツ部
  
  例：https://www.javadrive.jp/servlet/jsp/
@@ -38,3 +38,11 @@ EL式
 オブジェクトへのアクセスを簡単に行える式言語
 ＄｛～｝で記述する
 　⇒入れ子になったオブジェクトは、．で繋ぐ
+ 
+
+
+
+
+
+
+
