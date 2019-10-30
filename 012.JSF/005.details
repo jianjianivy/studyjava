@@ -12,9 +12,30 @@ POST
 
 ◆入力値取得
 ValueBinding
-<h:inputText>
-<h:inputHidden>
-...
+<h:form> -- 入出力項目は送信する単位で<h:form>タグで囲んでおくこと！！！
+ <h:inputText value="#{bean.val1}">
+ <h:inputHidden value="#{bean.val2}">
+ ...
+</h:form>
+
+※FacesRequest
+　　↓
+　①RestoreView
+　　↓
+　②ApplyRequestValue
+　　↓
+　③ProcessValidation
+　　↓
+　④UpdateModelValue　※入力値更新
+　　↓
+　⑤InvokeApplication
+　　↓
+　⑥RenderRespose
+　　↓
+　FacesResponse
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+　
+属性：value,required,immediate,rendered(BBのプロパティで表示・非表示制御できる)
 
 ◆BackingBeanアノテーション
 @Named
