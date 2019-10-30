@@ -7,10 +7,16 @@ POST
 <h:commandButton acton="sreen1" value="画面１へ">
 <h:commandLink acton="sreen1" value="画面１へ">
 
-値出力
+◆値出力
 <h:outputText>
 
-BackingBeanアノテーション
+◆入力値取得
+ValueBinding
+<h:inputText>
+<h:inputHidden>
+...
+
+◆BackingBeanアノテーション
 @Named
 　別名指定
 
