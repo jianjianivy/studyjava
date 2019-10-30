@@ -1,0 +1,34 @@
+◆画面遷移
+GET
+<h:link outcome="sreen1" value="画面１へ">
+<h:button outcome="sreen1" value="画面１へ">
+POST
+<h:form>
+<h:commandButton acton="sreen1" value="画面１へ">
+<h:commandLink acton="sreen1" value="画面１へ">
+
+値出力
+<h:outputText>
+
+BackingBeanアノテーション
+@Named
+　別名指定
+
+BBインスタンスの生成・破棄タイミング指定
+@RequstScoped
+　リクエストスコープ。
+　ブラウズからのリクエスト毎に1つ
+　リクエスト送信処理の開始／終了のタイミングで生成／破棄
+@ConversationScoped
+　対話スコープ。
+　ユーザ指定した【対話（複数回のHTTPリクエスト／レスポンス）毎に1つ
+　対話の開始／終了のタイミングで生成／破棄
+@SessionScoped
+　セッションスコープ。
+　ユーザのセッション毎に1つ
+　セッションの開始／終了のタイミングで生成／破棄
+@ApplicationScoped
+　アプリケーションスコープ。
+　アプリケーション内に1つのみ
+　アプリケーションの開始／終了のタイミングで生成／破棄
+
