@@ -1,0 +1,10 @@
+CDI：Context and Dependency Injection
+　Context：コンテキスト（スコープ）を持った
+　Dependency Injection：依存性注入
+
+JavaEE5でDI機能は存在したが、
+EJBを中心とした仕様で、制限が多かった
+
+JavaEE6から登場したCDIは
+全レイヤをサポートするDIコンテナ機能を持つ
+
