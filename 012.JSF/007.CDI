@@ -11,6 +11,23 @@ CDIのDIコンテナによって管理するクラスにアノテートするア
 　※異なるスコープを持ったCDIBeanの間に依存関係があったとしても、
 　　それぞれスコープは独立して動作する
   
+  --------------------------------------------
+  @RequestScope
+  class RequestBean{
+      int requestVal;
+      @Inject
+      praivate SessionBean s;
+  }
+  
+  @SessionScope
+  class SessionBean{
+      int sesseionVal;
+  }
+  
+  requestValはHTTPリクエストが終了すると消滅するが、
+  sesseionValは消滅しない
+  --------------------------------------------
+  
 　CDI管理下のオブジェクトことをCDI　Managed　Beanと呼ぶ
  
 BackingBeanの管理はJSFとCDIのどちらかとかを選択できる
