@@ -1,0 +1,16 @@
+利用例
+EntiyManager em = null;
+EntityTransaction tx = null;
+try{
+    em = emf.createEntityManager();
+    tx = em.getTransaction();  // 1．EntiyManagerからトランザクションを取得する
+    
+    tx.begin();  // 2.beginメソッドでトランザクションを開始する
+    em.persist(production);  // 3.エンティティに対する操作を何か行う
+    tx.commit(); // 4.エンティティに対して行った操作のデータベースへの反映／確定はcommitメソッドで行う
+}catch(Exception e){
+    tx.rollback(); // 5.エラー発生により、エンティティに対する操作を無かったことにする場合、rollbackを行う
+    throw e;
+}finally{
+    em.close();
+}
