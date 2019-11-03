@@ -6,5 +6,14 @@ OR（オブジェクト・リレーショナル）マッピング
 　O－＞Rマッピング：RDBを用いて永続オブジェクトを実現する手法
 　O＜－Rマッピング：RDBをオブジェクトモデルで扱うための手法
 　１エンティティ（オブジェクト）が１オカレンス（レコード）に対応
+ 
+ 
+ 
+ 
+ JPAの主な実装
+ Hibernate（JBoss）
+ TopLink（Oracle）
+ OpenJPA（Apache）
+ EclipseLink（IBM）
 
 
