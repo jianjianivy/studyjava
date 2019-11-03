@@ -15,5 +15,23 @@ JavaEEでの位置づけ
  　テーブルとJavaクラスの対応付け
  ②Javaから接続する
  　EntityManagerの取得
+ 　－－－－－－－－－－－－－－
+   EntiyManagerFactory emf = Persistence.createEntityManagerFactory("manager");
+   EntiyManager  em = emf.createEntiyManager();
+   ｜
+   ｜取得
+   ｜　　　　　　　参照
+   EntiyManager　－－－＞　persistence.xml
+   ↓接続
+   DB
+  
  ④問い合わせる
  　EntityManagerを使って問い合わせ
+ 　－－－－－－－－－－－－－－
+ 　EntiyManager  em = emf.createEntiyManager();
+   Product product = em.find(Product.class,10);
+   1.find（persist）
+   2.マーク（@）を解析しSQLを組み立て
+   3.SQLの実行
+   4.結果の返却
+   5.結果をProductに設定して返却
