@@ -1,1 +1,19 @@
-
+JPAとは
+JavaPersistenceAPI
+　Javaオブジェクトをデータベースに格納・復元するための規約
+　JDBCはJavaからデータベースに接続するための規約
+JavaEEでの位置づけ
+　JPAはJavaEEの一部として規定されている
+　⇒ただし、JavaSEでも利用可能
+　厳密にJavaEEのEJB規約の一部として定義されている
+ 
+ 利用手順
+ ①接続先を設定する
+ 　persistence.xml作成
+ 　DB接続先などを記述
+ ②テーブルとの対応をマークする
+ 　テーブルとJavaクラスの対応付け
+ ②Javaから接続する
+ 　EntityManagerの取得
+ ④問い合わせる
+ 　EntityManagerを使って問い合わせ
