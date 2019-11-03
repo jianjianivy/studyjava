@@ -1,0 +1,22 @@
+CDIのDIコンテナは定義情報をクラスに定義されているアノテーションから読み取る
+CDIのDIコンテナによって管理するクラスにアノテートするアノテーション
+　５つのCDIスコープアノテーション
+ 　　@RequestScoped
+ 　　@ConversationScoped
+ 　　@SessionScoped
+ 　　@ApplicationScoped
+ 　　@Dependent：アノテートされたBeanの呼出元（クライアント）のスコープを引き続ぐ
+ 　　　　　　　　　（スコープが呼出元に依存する場合に指定する）
+
+　※異なるスコープを持ったCDIBeanの間に依存関係があったとしても、
+　　それぞれスコープは独立して動作する
+  
+　CDI管理下のオブジェクトことをCDI　Managed　Beanと呼ぶ
+ 
+BackingBeanの管理はJSFとCDIのどちらかとかを選択できる
+　CDIベースのアプリケーションの場合、CDIを使うことが推奨される
+　スコープアノテーションがCDIとJSFでパッケージが異なるので注意
+　　CDI：javax.enterprise.context
+　　JSF：javax.faces.bean
+  
+@Injectのついた属性の型に一致するCDIBeanをインジェクション（依存関係の解決）する
