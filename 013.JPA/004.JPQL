@@ -34,3 +34,33 @@ SQLの直接利用
 createNativeQuery以外はJPOLと同様
 Query q1 = entityManager.createNativeQuery(
                  "select * from PRODUCT");
+
+
+動的なクエリ定義の問題点
+　毎回EntiyManagerがJPOLを解析する
+　　　⇒パフォーマンスが低下する
+　文字列連結を使用した場合、外部からの入力データのサニタイジングが必要になる
+　　　⇒セキュリティ上脆弱になる
+   
+⇒解決　
+NamedQueryによるクエリの定義:
+
+エンティティのアノテーションとして、JPOL文字列を定義する
+@NamedQueries({
+    @NamedQuery(name="Product.findAll",query="SELECT p FROM Product p"),
+    //注意nameは、persistence-unit全体で一意にすること
+    @NamedQuery(name="Product.findByName",query="SELECT p FROM Product p WHERE p.name = :name"),
+})
+public class Product{}
+
+NamedQueryによるクエリの実行:
+
+em.createNamedQuery("Product.findByName",Product.class)
+  .setParameter("name",name)
+  .getSingleResult();
+
+
+
+
+
+
