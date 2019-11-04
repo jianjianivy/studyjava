@@ -6,3 +6,31 @@ JPQL
 　インスタンスの集合に対して検索を行う
 　利用するデータベースごとの違いはJPAエンジンが吸収
 　
+JPQLクエリの生成
+Query q1 = entityManager.createQuery(
+                 "select p from Product p where p.name = ?");
+
+◆JPOLパラメータの指定
+(1)バインドindex
+Query q1 = entityManager.createQuery(
+                 "select p from Product p where p.name = ?");
+q1.setParameter(1,"バナナ");
+
+(2)バインド名
+Query q1 = entityManager.createQuery(
+                 "select p from Product p where p.name = :name");
+q1.setParameter("name","バナナ");
+
+◆JPQLクエリの実行
+複数エンジンを返す
+List<Product> result = q1.getResultLits();
+
+単一のエンティティを返す
+Product product = (Product)q1.getSingleResult();
+※結果が複数件あった場合、java.persistence.NonUniqueResultExceptionが発生
+　結果が0件の場合、java.persistence.NoResultExceptionが発生
+ 
+SQLの直接利用
+createNativeQuery以外はJPOLと同様
+Query q1 = entityManager.createNativeQuery(
+                 "select * from PRODUCT");
