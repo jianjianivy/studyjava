@@ -1,0 +1,8 @@
+JPQL
+ Java　Persistence　Query　Language
+ JPA独自の問い合わせ言語
+
+特徴
+　インスタンスの集合に対して検索を行う
+　利用するデータベースごとの違いはJPAエンジンが吸収
+　
